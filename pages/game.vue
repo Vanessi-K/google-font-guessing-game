@@ -1,5 +1,6 @@
 <template>
-  <p v-for="font in mostPopularFonts">{{font.family}}</p>
+  <GoogleFont v-for="font in mostPopularFonts" :font="font" :style="{'--family': font.family}"></GoogleFont>
+  <GoogleFont v-for="font in mostPopularFonts" :font="font" :style="{'--family': font.family}"></GoogleFont>
 </template>
 
 <script>
@@ -7,6 +8,7 @@ export default {
   name: "game",
   async setup() {
     const runtimeConfig = useRuntimeConfig()
+    console.log(runtimeConfig)
     const {data, error} = await useFetch('https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=' + runtimeConfig.public.googleApiKey)
 
     return { config: runtimeConfig, fontData:data, fontError:error}
@@ -18,9 +20,15 @@ export default {
   },
   mounted() {
     this.mostPopularFonts = this.fontData.items.slice(0, this.config.public.mostPopularFontsNumber);
+    //useLoadGoogleFonts(this.mostPopularFontsFamily, this.config.public.displayFontWeight)
   },
-  created() {
-    console.log(this.data)
+  computed: {
+    mostPopularFontsFamily() {
+      return this.mostPopularFonts.reduce((acc, font) => {
+        acc.push(font.family)
+        return acc
+      }, [])
+    }
   }
 }
 </script>
