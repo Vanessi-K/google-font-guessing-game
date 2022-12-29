@@ -1,5 +1,5 @@
 <template>
-  <p >{{font.family}}</p>
+  <span>{{font.family}}</span>
 </template>
 
 <script>
@@ -16,12 +16,12 @@ export default {
   },
   computed: {
     fontToLoad() {
-      return this.font.family + ":" + this.weight
+      return this.font + ":" + this.weight
     }
   },
   props: {
     font: {
-      type: Object,
+      type: String,
       required: true
     },
     weight: {
@@ -33,8 +33,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
-  p {
+  span {
     font-family: var(--family);
   }
 </style>
