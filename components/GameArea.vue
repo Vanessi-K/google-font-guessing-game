@@ -1,5 +1,7 @@
 <template>
- {{guessOptions}}
+  <ClientOnly>
+    <ButtonChoseFont v-for="guessOption in guessOptions" :font="guessOption"></ButtonChoseFont>
+  </ClientOnly>
 </template>
 
 <script>

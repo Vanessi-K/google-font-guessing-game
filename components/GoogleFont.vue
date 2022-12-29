@@ -1,5 +1,5 @@
 <template>
-  <span>{{font.family}}</span>
+  <span>{{text}}</span>
 </template>
 
 <script>
@@ -27,6 +27,10 @@ export default {
     weight: {
       type: String,
       default: 'regular'
+    },
+    text: {
+      type: String,
+      required: true
     }
   },
 }

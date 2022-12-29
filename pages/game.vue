@@ -1,6 +1,5 @@
 <template>
-  <GameArea guess-font="Open Sans" :option-fonts="['Roboto','Noto Sans']"></GameArea>
-  <GoogleFont v-for="font in mostPopularFontsFamily" :font="font" :style="{'--family': font}"></GoogleFont>
+  <GameArea :guess-font=guessFont :option-fonts=optionFonts></GameArea>
 </template>
 
 <script>
@@ -17,7 +16,10 @@ export default {
   },
   data() {
     return {
-      mostPopularFonts: []
+      mostPopularFonts: [],
+      guessFont: "Open Sans",
+      optionFonts: ["Roboto", "Noto Sans"]
+
     }
   },
   mounted() {
