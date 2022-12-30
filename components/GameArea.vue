@@ -1,13 +1,16 @@
 <template>
   <ClientOnly>
-    {{randomWord}}
+    <WordDisplay :font="guessFont" :text="randomWord"></WordDisplay>
     <ButtonChoseFont v-for="guessOption in guessOptions" :font="guessOption"></ButtonChoseFont>
   </ClientOnly>
 </template>
 
 <script>
+import WordDisplay from "~/components/WordDisplay.vue";
+
 export default {
   name: "GameArea",
+  components: {WordDisplay},
   data() {
     return {
       randomWord: ""
