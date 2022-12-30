@@ -1,5 +1,7 @@
 <template>
-  <GameArea :guess-font=guessFont :option-fonts=optionFonts></GameArea>
+  {{counter}}
+  <br>
+  <GameArea v-bind:key="gameAreaKey" @correctGuess="addPoints" @wrongGuess="reloadGameArea" :guess-font=guessFont :option-fonts=optionFonts></GameArea>
 </template>
 
 <script>
@@ -18,13 +20,23 @@ export default {
     return {
       mostPopularFonts: [],
       guessFont: "Open Sans",
-      optionFonts: ["Roboto", "Noto Sans"]
-
+      optionFonts: ["Roboto", "Noto Sans"],
+      counter: 0,
+      gameAreaKey: 0
     }
   },
   mounted() {
     this.mostPopularFonts = this.fontData.items.slice(0, this.config.public.mostPopularFontsNumber);
     //useLoadGoogleFonts(this.mostPopularFontsFamily, this.config.public.displayFontWeight)
+  },
+  methods: {
+    addPoints(points) {
+      this.counter += points;
+      this.reloadGameArea()
+    },
+    reloadGameArea() {
+      this.gameAreaKey++;
+    }
   },
   computed: {
     mostPopularFontsFamily() {

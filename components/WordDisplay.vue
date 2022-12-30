@@ -1,5 +1,5 @@
 <template>
-  <GoogleFont :style="{'--family': font}" :text="text"></GoogleFont>
+  <GoogleFont :font="font" :style="{'--family': font}" :text="text"></GoogleFont>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
   <ClientOnly>
     <WordDisplay :font="guessFont" :text="randomWord"></WordDisplay>
-    <ButtonChoseFont v-for="guessOption in guessOptions" :font="guessOption"></ButtonChoseFont>
+    <ButtonChoseFont @choseFont="verifyChoseFont" v-for="guessOption in guessOptions" :font="guessOption"></ButtonChoseFont>
   </ClientOnly>
 </template>
 
@@ -11,6 +11,7 @@ import WordDisplay from "~/components/WordDisplay.vue";
 export default {
   name: "GameArea",
   components: {WordDisplay},
+  emits: ['correctGuess', 'wrongGuess'],
   data() {
     return {
       randomWord: ""
@@ -23,11 +24,20 @@ export default {
   },
   computed: {
     guessOptions() {
-      let optionsArray = this.optionFonts;
+      let optionsArray = this.optionFonts.slice();
       let randomIndex = Math.random() * (optionsArray.length + 1);
       randomIndex = Math.floor(randomIndex);
       optionsArray.splice(randomIndex, 0, this.guessFont);
       return optionsArray;
+    }
+  },
+  methods: {
+    verifyChoseFont(chosenFont) {
+      if(chosenFont === this.guessFont) {
+        this.$emit('correctGuess', 1)
+      } else {
+        this.$emit('wrongGuess')
+      }
     }
   },
   props: {
