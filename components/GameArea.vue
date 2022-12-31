@@ -1,7 +1,9 @@
 <template>
   <ClientOnly>
     <WordDisplay :font="guessFont" :text="randomWord"></WordDisplay>
-    <ButtonChoseFont @choseFont="verifyChoseFont" v-for="guessOption in guessOptions" :font="guessOption"></ButtonChoseFont>
+    <div class="d-flex flex-row justify-content-center gap-5 flex-wrap">
+      <ButtonChoseFont @choseFont="dissolveFonts" v-for="guessOption in guessOptions" :font="guessOption" :isCorrect="guessOption === guessFont" :dissolve="dissolve"></ButtonChoseFont>
+    </div>
   </ClientOnly>
 </template>
 
@@ -19,7 +21,8 @@ export default {
   data() {
     return {
       randomWord: "",
-      startTime: new Date()
+      startTime: new Date(),
+      dissolve: false
     }
   },
   async mounted() {
@@ -37,9 +40,19 @@ export default {
     }
   },
   methods: {
-    verifyChoseFont(chosenFont) {
+    dissolveFonts(chosenFont) {
       const endTime = new Date();
+
+      this.dissolve = true;
+      setTimeout(_ => {
+        this.verifyChoseFont(chosenFont, endTime)}, 2000, chosenFont, endTime);
+
+    },
+    verifyChoseFont(chosenFont, endTime) {
+      console.log(this.guessFont)
+      console.log(chosenFont)
       if(chosenFont === this.guessFont) {
+        console.log("Correct!")
         const timespan = endTime - this.startTime;
 
         let bonusTimePoints = Math.floor((this.config.public.guessFontBonusPointsTimeInMilliSeconds - timespan) / 1000);
@@ -50,6 +63,7 @@ export default {
           this.$emit('correctGuess', this.config.public.basisPoints)
         }
       } else {
+        console.log("wrong guess")
         this.$emit('wrongGuess')
       }
     }

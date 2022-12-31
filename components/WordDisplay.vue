@@ -1,5 +1,5 @@
 <template>
-  <div class="visibilityBar">
+  <div class="visibilityBar d-flex justify-content-center align-items-center">
     <GoogleFont :font="font" :style="{'--family': font}" :text="text"></GoogleFont>
   </div>
 </template>
@@ -22,8 +22,15 @@ export default {
 
 <style scoped>
 
+div {
+  font-size: 4rem;
+  min-height: 7rem;
+  color: #f8f9fa;
+  margin:6rem 0;
+}
+
 .visibilityBar {
-  background: linear-gradient(to right, white 50%, black 50%);
+  background: linear-gradient(to right, black 50%, #f8f9fa 50%);
   display: inline-block;
   animation: gradient 5s linear;
   background-size: 200% 100%;
