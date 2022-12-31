@@ -5,6 +5,8 @@ export default {
             mostPopularFontsNumber: 10,
             optionFontsNumber: 2,
             displayFontWeight: 'regular',
+            guessFontBonusPointsTimeInMilliSeconds: 5000,
+            basisPoints: 3
         }
     },
     app: {
