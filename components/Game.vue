@@ -40,8 +40,12 @@ export default {
       this.reloadGameArea()
     },
     reloadGameArea() {
-      this.guessFont = this.getRandomFont();
-      this.optionFonts = this.getRandomFonts(this.config.public.optionFontsNumber);
+      this.guessFont = "";
+      this.optionFonts = [];
+      do {
+        this.guessFont = this.getRandomFont();
+      } while (!this.fontIsUnique(this.guessFont , this.optionFonts));
+      this.optionFonts = this.getUniqueRandomFonts(this.config.public.optionFontsNumber);
       this.gameAreaKey++;
     },
     getRandomFont() {
@@ -49,12 +53,19 @@ export default {
       randomIndex = Math.floor(randomIndex);
       return this.mostPopularFonts[randomIndex].family;
     },
-    getRandomFonts(number) {
+    getUniqueRandomFonts(number) {
       let fontsArray = [];
       for(let i = 0; i < number; i++) {
-        fontsArray.push(this.getRandomFont())
+        let randomFont;
+        do {
+          randomFont = this.getRandomFont();
+        } while (!this.fontIsUnique(randomFont, fontsArray));
+        fontsArray.push(randomFont)
       }
       return fontsArray;
+    },
+    fontIsUnique(validationFont, fontGroup) {
+      return !fontGroup.includes(validationFont);
     }
   },
   computed: {
