@@ -37,6 +37,10 @@ export default {
     addPoints(points) {
       this.counter += points;
       this.countCorrectFonts++;
+
+      localStorage.setItem("points", this.counter);
+      localStorage.setItem("correctFonts", this.countCorrectFonts);
+
       this.reloadGameArea()
     },
     reloadGameArea() {

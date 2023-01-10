@@ -1,8 +1,8 @@
 <template>
-  <div class="my-5 d-flex flex-column align-items-center">
-    <h1 class="mt-5">Guess the Google-Font</h1>
+  <div class="d-flex flex-column align-items-center">
     <Game></Game>
-    <button class="big-margin btn btn-outline-light">End game</button>
+    <NuxtLink to="/end"><button class="big-margin btn btn-outline-light">End game</button></NuxtLink>
+
   </div>
 
 </template>

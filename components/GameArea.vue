@@ -49,8 +49,6 @@ export default {
 
     },
     verifyChoseFont(chosenFont, endTime) {
-      console.log(this.guessFont)
-      console.log(chosenFont)
       if(chosenFont === this.guessFont) {
         console.log("Correct!")
         const timespan = endTime - this.startTime;
