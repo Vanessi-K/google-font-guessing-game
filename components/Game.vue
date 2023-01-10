@@ -42,10 +42,10 @@ export default {
     reloadGameArea() {
       this.guessFont = "";
       this.optionFonts = [];
+      this.optionFonts = this.getUniqueRandomFonts(this.config.public.optionFontsNumber);
       do {
         this.guessFont = this.getRandomFont();
       } while (!this.fontIsUnique(this.guessFont , this.optionFonts));
-      this.optionFonts = this.getUniqueRandomFonts(this.config.public.optionFontsNumber);
       this.gameAreaKey++;
     },
     getRandomFont() {

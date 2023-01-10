@@ -15,7 +15,5 @@ export default {
 </script>
 
 <style scoped>
-.big-margin {
-  margin-top: 10rem;
-}
+
 </style>

@@ -2,3 +2,7 @@ body {
     background-color: black;
     color: #f8f9fa;
 }
+
+.big-margin {
+    margin-top: 10rem;
+}
