@@ -2,6 +2,7 @@
   <h4 class="mt-3">{{counter}} Points</h4>
   <br>
   <GameArea v-if="renderGame" v-bind:key="gameAreaKey" @correctGuess="addPoints" @wrongGuess="reloadGameArea" :guess-font=guessFont :option-fonts=optionFonts></GameArea>
+  <Loader v-else></Loader>
 </template>
 
 <script>
@@ -22,7 +23,9 @@ export default {
       guessFont: "",
       optionFonts: [],
       counter: 0,
+      countCorrectFonts: 0,
       gameAreaKey: 0,
+      startTime: null
     }
   },
   mounted() {
@@ -33,6 +36,7 @@ export default {
   methods: {
     addPoints(points) {
       this.counter += points;
+      this.countCorrectFonts++;
       this.reloadGameArea()
     },
     reloadGameArea() {
