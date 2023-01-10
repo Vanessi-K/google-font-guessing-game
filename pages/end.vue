@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import InfoBox from "~/components/InfoBox.vue";
 
 export default {
   name: "end.vue",
@@ -23,7 +22,6 @@ export default {
       correctFonts: 0,
     }
   },
-  components: {InfoBox},
   mounted() {
     this.points = localStorage.getItem("points") ? localStorage.getItem("points") : 0;
     this.correctFonts = localStorage.getItem("correctFonts") ? localStorage.getItem("correctFonts") : 0;

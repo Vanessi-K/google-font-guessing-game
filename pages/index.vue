@@ -10,21 +10,14 @@
       <InfoBox text="This game (as the name says) uses Google-Fonts. The to-be-guessed-fonts are always based on the currently most popular fonts. Therefore, the Google-Fonts-API is used, and font files are always loaded dynamically from Google" cardStyle="filled"></InfoBox>
       <InfoBox class="mt-5" text="The total points are not only calculated, by how many fonts you guessed correctly, it is also factored in how fast you guessed them."></InfoBox>
     </div>
-
   </div>
 
 </template>
 
 <script>
-import InfoBox from "~/components/InfoBox.vue";
 
 export default {
-  name: "index",
-  data() {
-    return {
-    }
-  },
-  components: {InfoBox},
+  name: "index"
 }
 </script>
 

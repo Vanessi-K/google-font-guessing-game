@@ -2,7 +2,7 @@ export default {
     runtimeConfig: {
         public: {
             googleApiKey: '',
-            mostPopularFontsNumber: 50,
+            mostPopularFontsNumber: 100,
             optionFontsNumber: 2,
             displayFontWeight: 'regular',
             guessFontBonusPointsTimeInMilliSeconds: 5000,

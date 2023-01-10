@@ -8,11 +8,9 @@
 </template>
 
 <script>
-import WordDisplay from "~/components/WordDisplay.vue";
 
 export default {
   name: "GameArea",
-  components: {WordDisplay},
   emits: ['correctGuess', 'wrongGuess'],
   async setup() {
     const runtimeConfig = useRuntimeConfig()
@@ -46,11 +44,9 @@ export default {
       this.dissolve = true;
       setTimeout(_ => {
         this.verifyChoseFont(chosenFont, endTime)}, 2000, chosenFont, endTime);
-
     },
     verifyChoseFont(chosenFont, endTime) {
       if(chosenFont === this.guessFont) {
-        console.log("Correct!")
         const timespan = endTime - this.startTime;
 
         let bonusTimePoints = Math.floor((this.config.public.guessFontBonusPointsTimeInMilliSeconds - timespan) / 1000);
@@ -61,7 +57,6 @@ export default {
           this.$emit('correctGuess', this.config.public.basisPoints)
         }
       } else {
-        console.log("wrong guess")
         this.$emit('wrongGuess')
       }
     }
