@@ -1,16 +1,13 @@
 <template>
-  <div class="d-flex flex-column align-items-center">
+  <div class="d-flex flex-column align-items-center container">
     <Game></Game>
     <NuxtLink to="/end"><button class="big-margin btn btn-outline-light">End game</button></NuxtLink>
-
   </div>
-
 </template>
 
 <script>
-
 export default {
-  name: "game"
+  name: "game",
 }
 </script>
 

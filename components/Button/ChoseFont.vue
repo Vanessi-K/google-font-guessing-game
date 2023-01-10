@@ -47,7 +47,7 @@ button {
 
 .btn:hover {
   background: #333;
-  border: #333;
+  border: 1px solid #333;
 }
 
 .btn.correct {

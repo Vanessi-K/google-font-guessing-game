@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 m-5" :class="[style]">
+  <div class="p-4 m-2" :class="[cardStyle]">
     <p>{{text}}</p>
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
       type: String,
       required: true
     },
-    style: {
+    cardStyle: {
       type: String,
       default: "outline"
     }
