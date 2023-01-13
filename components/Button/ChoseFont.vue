@@ -33,31 +33,36 @@ export default {
 <style scoped>
 
 button {
-  font-size: 2rem;
-  min-height: 5rem;
+  font-size: 3rem;
   padding: 0 2rem;
 }
 
 .btn {
-  background: #222;
-  border: 1px solid #222;
-  color: #f8f9fa;
-  box-shadow:  0 0 25px #444
+  background: #f8f9fa;
+  color: #222;
+  border-radius: 0;
+  min-height:8rem;
+  height: 15vw;
+  border-top: 10px solid #f8f9fa;
+  border-bottom: 10px solid #f8f9fa;
 }
 
 .btn:hover {
-  background: #333;
-  border: 1px solid #333;
+  background: #e1e1e1;
+  border-top: 10px solid #e1e1e1;
+  border-bottom: 10px solid #e1e1e1;
 }
 
 .btn.correct {
-  box-shadow:  0 0 25px #2aff00;
-  border:  1px solid #2aff00;
+  border-top: 10px solid #00f500;
+  background-color: #bbffbb;
+  border-bottom: 10px solid #bbffbb;
 }
 
 .btn.wrong {
-  box-shadow:  0 0 25px #ff0006;
-  border:  1px solid #ff0006;
+  border-top: 10px solid #ff0000;
+  background-color: #ffbaba;
+  border-bottom: 10px solid #ffbaba;
 }
 
 </style>

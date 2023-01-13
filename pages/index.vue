@@ -7,7 +7,7 @@
       <NuxtLink to="/game"><button class="btn btn-light mt-3">Start Guessing ⁉</button></NuxtLink>
     </div>
     <div class="col-12 col-md-6 d-flex flex-column order-md-1">
-      <InfoBox text="This game (as the name says) uses Google-Fonts. The to-be-guessed-fonts are always based on the currently most popular fonts. Therefore, the Google-Fonts-API is used, and font files are always loaded dynamically from Google" cardStyle="filled"></InfoBox>
+      <InfoBox text="This game (as the name says) uses Google-Fonts. The to-be-guessed-fonts are always based on the currently most popular fonts. Therefore, the Google-Fonts-API is used, and font files are always loaded dynamically from Google. When playing this game you agree that data is being sent to Google." cardStyle="filled"></InfoBox>
       <InfoBox class="mt-5" text="The total points are not only calculated, by how many fonts you guessed correctly, it is also factored in how fast you guessed them."></InfoBox>
     </div>
   </div>

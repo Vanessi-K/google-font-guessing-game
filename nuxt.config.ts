@@ -3,7 +3,7 @@ export default {
         public: {
             googleApiKey: '',
             mostPopularFontsNumber: 100,
-            optionFontsNumber: 2,
+            optionFontsNumber: 3,
             displayFontWeight: 'regular',
             guessFontBonusPointsTimeInMilliSeconds: 5000,
             basisPoints: 3

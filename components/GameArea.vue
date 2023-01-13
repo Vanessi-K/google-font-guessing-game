@@ -1,8 +1,8 @@
 <template>
   <ClientOnly>
     <WordDisplay :font="guessFont" :text="randomWord"></WordDisplay>
-    <div class="d-flex flex-row justify-content-center gap-5 flex-wrap">
-      <ButtonChoseFont @choseFont="dissolveFonts" v-for="guessOption in guessOptions" :font="guessOption" :isCorrect="guessOption === guessFont" :dissolve="dissolve"></ButtonChoseFont>
+    <div class="row w-100">
+      <ButtonChoseFont class="col-12 col-sm-6 col-md-3" @choseFont="dissolveFonts" v-for="guessOption in guessOptions" :font="guessOption" :isCorrect="guessOption === guessFont" :dissolve="dissolve"></ButtonChoseFont>
     </div>
   </ClientOnly>
 </template>
