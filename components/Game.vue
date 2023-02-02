@@ -6,11 +6,9 @@
 </template>
 
 <script>
-import GameArea from "~/components/GameArea.vue";
 
 export default {
   name: "Game",
-  components: {GameArea},
   async setup() {
     const runtimeConfig = useRuntimeConfig()
     const {data, error} = await useFetch('https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=' + runtimeConfig.public.googleApiKey)
