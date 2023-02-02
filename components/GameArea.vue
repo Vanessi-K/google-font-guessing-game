@@ -1,8 +1,8 @@
 <template>
   <ClientOnly>
-    <WordDisplay :font="guessFont" :text="randomWord"></WordDisplay>
+    <WordDisplay :font="correctFont" :text="randomWord"></WordDisplay>
     <div class="row w-100">
-      <ButtonChoseFont class="col-12 col-sm-6 col-md-3" @choseFont="dissolveFonts" v-for="guessOption in guessOptions" :font="guessOption" :isCorrect="guessOption === guessFont" :dissolve="dissolve"></ButtonChoseFont>
+      <ButtonChoseFont class="col-12 col-sm-6 col-md-3" @choseFont="resolveFonts" v-for="guessOption in guessOptions" :font="guessOption" :isCorrect="guessOption === correctFont" :resolve="resolve"></ButtonChoseFont>
     </div>
   </ClientOnly>
 </template>
@@ -20,7 +20,7 @@ export default {
     return {
       randomWord: "",
       startTime: new Date(),
-      dissolve: false
+      resolve: false
     }
   },
   async mounted() {
@@ -30,23 +30,23 @@ export default {
   },
   computed: {
     guessOptions() {
-      let optionsArray = this.optionFonts.slice();
+      let optionsArray = this.wrongFonts.slice();
       let randomIndex = Math.random() * (optionsArray.length + 1);
       randomIndex = Math.floor(randomIndex);
-      optionsArray.splice(randomIndex, 0, this.guessFont);
+      optionsArray.splice(randomIndex, 0, this.correctFont);
       return optionsArray;
     }
   },
   methods: {
-    dissolveFonts(chosenFont) {
+    resolveFonts(chosenFont) {
       const endTime = new Date();
 
-      this.dissolve = true;
+      this.resolve = true;
       setTimeout(_ => {
         this.verifyChoseFont(chosenFont, endTime)}, 2000, chosenFont, endTime);
     },
     verifyChoseFont(chosenFont, endTime) {
-      if(chosenFont === this.guessFont) {
+      if(chosenFont === this.correctFont) {
         const timespan = endTime - this.startTime;
 
         let bonusTimePoints = Math.floor((this.config.public.guessFontBonusPointsTimeInMilliSeconds - timespan) / 1000);
@@ -62,11 +62,11 @@ export default {
     }
   },
   props: {
-    guessFont: {
+    correctFont: {
       type: String,
       required: true
     },
-    optionFonts: {
+    wrongFonts: {
       type: Array,
       required: true
     }

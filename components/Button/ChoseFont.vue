@@ -1,5 +1,5 @@
 <template>
-  <button @click="handleClick" class="d-flex justify-content-center align-items-center btn" :class="[{'correct': isCorrect && dissolve}, {'wrong': !isCorrect && dissolve}]">
+  <button @click="handleClick" class="d-flex justify-content-center align-items-center btn" :class="[{'correct': isCorrect && resolve}, {'wrong': !isCorrect && resolve}]">
     <GoogleFont :font="font" :style="{'--family': font}" :text="font"></GoogleFont>
   </button>
 </template>
@@ -17,7 +17,7 @@ export default {
       type: Boolean,
       default: false
     },
-    dissolve: {
+    resolve: {
       type: Boolean,
       default: false
     }
