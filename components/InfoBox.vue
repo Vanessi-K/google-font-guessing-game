@@ -23,18 +23,18 @@ export default {
 <style scoped>
 
 div {
-  border: 1px solid #f8f9fa;
-  box-shadow:  0 0 25px #444;
+  border: 1px solid black;
+  box-shadow:  0 0 25px #cbcbcb;
   max-width: 500px;
 }
 
 div.filled {
-  color: black;
-  background: #f8f9fa;
+  color: white;
+  background: black;
 }
 
 div.outline {
-  color: #f8f9fa;
+  color: black;
 }
 
 p {

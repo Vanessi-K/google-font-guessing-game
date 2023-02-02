@@ -25,12 +25,12 @@ export default {
 div {
   font-size: 4rem;
   min-height: 7rem;
-  color: #f8f9fa;
+  color: black;
   margin:6rem 0;
 }
 
 .visibilityBar {
-  background: linear-gradient(to right, black 50%, #f8f9fa 50%);
+  background: linear-gradient(to right, white 50%, black 50%);
   display: inline-block;
   animation: gradient 5s linear;
   background-size: 200% 100%;

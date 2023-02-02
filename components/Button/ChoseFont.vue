@@ -38,31 +38,31 @@ button {
 }
 
 .btn {
-  background: #f8f9fa;
-  color: #222;
+  background: black;
+  color: white;
   border-radius: 0;
   min-height:8rem;
   height: 15vw;
-  border-top: 10px solid #f8f9fa;
-  border-bottom: 10px solid #f8f9fa;
+  border-top: 10px solid black;
+  border-bottom: 10px solid black;
 }
 
 .btn:hover {
-  background: #e1e1e1;
-  border-top: 10px solid #e1e1e1;
-  border-bottom: 10px solid #e1e1e1;
+  background: #2f2f2f;
+  border-top: 10px solid #2f2f2f;
+  border-bottom: 10px solid #2f2f2f;
 }
 
 .btn.correct {
-  border-top: 10px solid #00f500;
-  background-color: #bbffbb;
-  border-bottom: 10px solid #bbffbb;
+  border-top: 10px solid #00ff00;
+  /*background-color: #bbffbb;*/
+  /*border-bottom: 10px solid #bbffbb;*/
 }
 
 .btn.wrong {
   border-top: 10px solid #ff0000;
-  background-color: #ffbaba;
-  border-bottom: 10px solid #ffbaba;
+  /*background-color: #ffbaba;*/
+  /*border-bottom: 10px solid #ffbaba;*/
 }
 
 </style>

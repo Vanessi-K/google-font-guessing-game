@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex flex-column justify-content-center align-items-center m-3">
-    <p class="highlight-number bg-white text-black py-2 px-4 ">{{points}}</p>
+    <p class="highlight-number bg-black text-white py-2 px-4 ">{{points}}</p>
     <p v-if="text" class="mt-3 h3">{{text}}</p>
   </div>
 </template>

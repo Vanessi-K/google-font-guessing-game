@@ -1,8 +1,25 @@
 body {
-    background-color: black;
-    color: #f8f9fa;
+    background-color: white;
+    color: black;
 }
 
 .big-margin {
     margin-top: 10rem;
+}
+
+.c-btn-light {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.c-btn-light:hover, .c-btn-light:focus, .c-btn-light:active {
+    background-color: black;
+    color: white;
+}
+
+.c-btn-circle {
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
 }
