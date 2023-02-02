@@ -12,6 +12,10 @@ export default {
     css: [
         '~/assets/styles/app.css',
     ],
+    modules:['@pinia/nuxt'],
+    imports: {
+        dirs: ['stores']
+    },
     app: {
         head: {
             meta: [

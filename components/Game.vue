@@ -1,19 +1,19 @@
 <template>
-  <h4 class="mt-3">{{counter}} Points</h4>
+  <h4 class="mt-3">{{gameStore.currentPoints}} Points</h4>
   <br>
   <GameArea v-if="renderGame" v-bind:key="gameAreaKey" @correctGuess="addPoints" @wrongGuess="reloadGameArea" :guess-font=guessFont :option-fonts=optionFonts></GameArea>
   <Loader v-else></Loader>
 </template>
 
 <script>
-
 export default {
   name: "Game",
   async setup() {
     const runtimeConfig = useRuntimeConfig()
     const {data, error} = await useFetch('https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=' + runtimeConfig.public.googleApiKey)
+    const gameStore = useGameStore()
 
-    return { config: runtimeConfig, fontData:data, fontError:error}
+    return { config: runtimeConfig, fontData:data, fontError:error, gameStore}
   },
   data() {
     return {
@@ -27,17 +27,16 @@ export default {
     }
   },
   mounted() {
+    this.gameStore.$reset()
+
     this.mostPopularFonts = this.fontData.items.slice(0, this.config.public.mostPopularFontsNumber);
     this.reloadGameArea()
     //useLoadGoogleFonts(this.mostPopularFontsFamily, this.config.public.displayFontWeight)
   },
   methods: {
     addPoints(points) {
-      this.counter += points;
-      this.countCorrectFonts++;
-
-      localStorage.setItem("points", this.counter);
-      localStorage.setItem("correctFonts", this.countCorrectFonts);
+      this.gameStore.addPoints(points)
+      this.gameStore.addGuessedFont()
 
       this.reloadGameArea()
     },
