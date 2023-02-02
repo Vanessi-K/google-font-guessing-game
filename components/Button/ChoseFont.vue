@@ -54,13 +54,13 @@ button {
 }
 
 .btn.correct {
-  border-top: 10px solid #00ff00;
+  border-top: 10px solid #23ce23;
   /*background-color: #bbffbb;*/
   /*border-bottom: 10px solid #bbffbb;*/
 }
 
 .btn.wrong {
-  border-top: 10px solid #ff0000;
+  border-top: 10px solid #da1d1d;
   /*background-color: #ffbaba;*/
   /*border-bottom: 10px solid #ffbaba;*/
 }
