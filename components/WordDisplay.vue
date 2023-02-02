@@ -33,7 +33,7 @@ div {
   background: linear-gradient(to right, white 50%, black 50%);
   display: inline-block;
   animation: gradient 5s linear;
-  background-size: 200% 100%;
+  background-size: 210% 100%;
   background-position: left;
 }
 
