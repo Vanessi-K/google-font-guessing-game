@@ -31,8 +31,7 @@ export default {
   computed: {
     guessOptions() {
       let optionsArray = this.wrongFonts.slice();
-      let randomIndex = Math.random() * (optionsArray.length + 1);
-      randomIndex = Math.floor(randomIndex);
+      let randomIndex = Math.floor(Math.random() * (optionsArray.length + 1));
       optionsArray.splice(randomIndex, 0, this.correctFont);
       return optionsArray;
     }
@@ -50,12 +49,10 @@ export default {
         const timespan = endTime - this.startTime;
 
         let bonusTimePoints = Math.floor((this.config.public.guessFontBonusPointsTimeInMilliSeconds - timespan) / 1000);
-        if(bonusTimePoints > 0) {
-          let points = this.config.public.basisPoints + bonusTimePoints
-          this.$emit('correctGuess', points)
-        } else {
-          this.$emit('correctGuess', this.config.public.basisPoints)
-        }
+        bonusTimePoints = bonusTimePoints > 0 ? bonusTimePoints : 0;
+
+        this.$emit('correctGuess', this.config.public.basisPoints + bonusTimePoints)
+
       } else {
         this.$emit('wrongGuess')
       }
