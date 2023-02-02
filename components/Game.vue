@@ -24,10 +24,8 @@ export default {
   },
   mounted() {
     this.gameStore.$reset()
-
     this.mostPopularFonts = this.fontData.items.slice(0, this.config.public.mostPopularFontsNumber);
     this.reloadGameArea()
-    //useLoadGoogleFonts(this.mostPopularFontsFamily, this.config.public.displayFontWeight)
   },
   methods: {
     addPoints(points) {

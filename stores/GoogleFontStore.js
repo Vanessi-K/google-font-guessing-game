@@ -1,11 +1,7 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
 
 export const useGoogleFontStore = defineStore('GoogleFontStore', {
-    state() {
-        return {
-
-        }
-    },
+    state() {},
     getters: {},
     actions: {
         getRandomFont(allFonts) {

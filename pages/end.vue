@@ -19,10 +19,6 @@ export default {
   setup() {
     const gameStore = useGameStore()
     return {gameStore}
-  },
-  data() {
-    return {
-    }
   }
 }
 </script>

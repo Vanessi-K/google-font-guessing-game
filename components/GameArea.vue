@@ -8,7 +8,6 @@
 </template>
 
 <script>
-
 export default {
   name: "GameArea",
   emits: ['correctGuess', 'wrongGuess'],
